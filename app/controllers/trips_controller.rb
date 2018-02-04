@@ -9,9 +9,15 @@ class TripsController < ApplicationController
     @distance = Trip.sum(:distance)
     @date = Date.today
 
-    fuel_price = Fuel.first.price
-    fuel_value = Consumption.first.value
-    @km = (fuel_price * fuel_value) / 100
+    begin
+      fuel_price = Fuel.any? && Fuel.first.price
+      fuel_value = Consumption.any? && Consumption.first.value
+      @km = 1
+    rescue ActiveRecord::RecordNotFound => e
+      fuel_price = 0
+      fuel_value = 0
+      @km = (fuel_price * fuel_value) / 100
+    end
   end
 
   # GET /trips/1
