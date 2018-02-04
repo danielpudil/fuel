@@ -1,0 +1,78 @@
+<div class="row">
+  <div class="col s12 m10 l10 offset-m1 offset-l1">
+    <p  class="title">Přehled jízd</p>
+
+    <div class="card white lighten-4">
+      <div class="card-content">
+
+        <%= link_to new_trip_path, class: 'btn-floating halfway-fab waves-effect waves-light red add' do %>
+            <i class="material-icons">add</i>
+        <% end %>
+
+        <table class="striped" class="col s12 m6 l10 offset-l1 offset-m3">
+          <thead>
+          <tr>
+            <th>Datum</th>
+            <th>Kam</th>
+            <th>Km</th>
+            <th>Cena</th>
+            <th></th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <% @trips.each do |trip| %>
+              <tr>
+                <td><%= trip.date %></td>
+                <td><%= trip.destination %></td>
+                <td><%= trip.distance %> Km</td>
+                <td><%= (@km * trip.distance).round(2) %> Kč</td>
+                <td>
+                <%= link_to edit_trip_url(trip), class: 'btn-floating btn-large waves-effect waves-light green edit' do %>
+                    <i class="material-icons" style="line-height: 40px;">edit</i>
+                <% end %>
+                </td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="row col s12 m7 l10 offset-l1">
+  <div class="col s12 m8 l5 offset-l1 offset-m2">
+    <p  class="title" style="margin-top: 0">Souhrn za měsíc</p>
+    <div class="card horizontal">
+      <div class="card-stacked">
+        <div class="card-content">
+          <div class="col s4 m4 l4"><span class="flow-text" style="font-size: 1.4em; font-weight: 600;">Celkem</span></div>
+          <div class="col s4 m4 l4"><span class="flow-text" style="font-size: 1.4em;"><%= @distance %> Km</span></div>
+          <div class="col s4 m4 l4"><span class="flow-text" style="font-size: 1.4em;"><%= (@km * @distance).round(2) %> Kč</span></div>
+        </div>
+        <div class="card-action">
+          <a href="#">Uzavřít za měsíc <em style="color: #4CAF50;"><%= @date.strftime('%B')%></em></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col s12 m8 l4 offset-l1 offset-m2">
+    <p  class="title" style="margin-top: 0">Cena celkem</p>
+    <div class="card horizontal">
+      <div class="card-stacked">
+        <div class="card-content">
+          <div class="col s6 l6"><span class="flow-text" style="font-size: 1.4em; font-weight: 600;">K zaplacení</span></div>
+          <div class="col s6 l6"><span class="flow-text" style="font-size: 1.4em; font-weight: 600; color:red;"><%= ((@km * @distance) - Pay.sum(:price)).round(2) %> Kč</span></div>
+
+          <div class="col s6 l6"><span class="flow-text" style="font-size: 1.4em; font-weight: 600;">Zaplaceno</span></div>
+          <div class="col s6 l6"><span class="flow-text" style="font-size: 1.4em; font-weight: 600; color: #4CAF50;"><%= Pay.sum(:price) %> Kč</span></div>
+        </div>
+        <div class="card-action">
+          <%= link_to 'Zaplatit', new_pay_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

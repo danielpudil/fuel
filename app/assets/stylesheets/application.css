@@ -1,0 +1,54 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+.title {
+    font-family: GillSans, Calibri, Trebuchet, sans-serif;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.card-content .btn-floating.halfway-fab:first-child {
+    position: absolute;
+    right: 2px;
+    top: -53px;
+}
+
+.card .card-content .edit {
+    width: 40px;
+    height: 40px;
+    border-radius: 2px;
+    float: right;
+    margin-right: 20px;
+}
+
+.card .card-content table tbody tr td:first-child {
+    padding-left: 10px;
+}
+
+.card .card-content table td {
+    padding: 10px 5px;
+}
+
+.note {
+    font-family: GillSans, Calibri, Trebuchet, sans-serif;
+    font-size: 1.2em;
+    text-align: center;
+    width: 311px;
+    margin: 20px auto;
+    background: #4caf50;
+    border-radius: 10px;
+}

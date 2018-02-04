@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: MyString
+  destination: MyString
+  distance: 1
+  price: 1
+
+two:
+  date: MyString
+  destination: MyString
+  distance: 1
+  price: 1

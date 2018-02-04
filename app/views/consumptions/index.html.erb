@@ -1,0 +1,54 @@
+<p id="notice" class="note"><%= notice %></p>
+
+<div class="row">
+  <div class="col s12 m6 l6 offset-m3 offset-l3">
+    <p  class="title">Spotřeba</p>
+
+    <div class="card white lighten-4">
+      <div class="card-content">
+        <table class="striped" class="col s12 m6 l10 offset-l1 offset-m3">
+          <tbody>
+          <% @consumptions.each do |consumption| %>
+              <tr>
+                <td style="font-weight: 600">Spotřeba</td>
+                <td><%= consumption.value %> litrů</td>
+                <td>
+                  <%= link_to edit_consumption_path(consumption), class: 'btn-floating btn-large waves-effect waves-light green edit' do %>
+                      <i class="material-icons" style="line-height: 40px;">edit</i>
+                  <% end %>
+                </td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col s12 m6 l6 offset-m3 offset-l3">
+    <p  class="title">Cena benzínu</p>
+
+    <div class="card white lighten-4">
+      <div class="card-content">
+        <table class="striped" class="col s12 m6 l10 offset-l1 offset-m3">
+          <tbody>
+          <% @fuel.each do |fuel| %>
+              <tr>
+                <td style="font-weight: 600">Cena</td>
+                <td><%= fuel.price %> Kč</td>
+                <td>
+                  <%= link_to edit_fuel_url(fuel), class: 'btn-floating btn-large waves-effect waves-light green edit' do %>
+                      <i class="material-icons" style="line-height: 40px;">edit</i>
+                  <% end %>
+                </td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+

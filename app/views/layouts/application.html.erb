@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Benzin</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+
+  <body style="background-color: #f0f0f0;">
+  <nav>
+    <div class="nav-wrapper blue">
+      <a href="#" class="brand-logo center">Jízdy</a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><%= link_to  'Přehled', trips_path %></li>
+        <li><%= link_to  'Nastavení', consumptions_path %></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <%= yield %>
+  </body>
+</html>

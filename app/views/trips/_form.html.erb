@@ -1,0 +1,42 @@
+<%= form_with(model: trip, local: true) do |form| %>
+  <% if trip.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(trip.errors.count, "error") %> prohibited this trip from being saved:</h2>
+
+      <ul>
+      <% trip.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+    <div class="row">
+      <div class="col s12 m6 offset-m3">
+        <div class="card white lighten-3">
+          <div class="card-content white-text">
+            <span class="card-title black-text">Vytvoření cesty</span>
+            <div class="field">
+              <%= form.label :date %>
+              <%= form.text_field :date, id: :trip_date, class: "black-text" %>
+            </div>
+
+            <div class="field">
+              <%= form.label :destination %>
+              <%= form.text_field :destination, id: :trip_destination, class: "black-text"  %>
+            </div>
+
+            <div class="field">
+              <%= form.label :distance %>
+              <%= form.number_field :distance, id: :trip_distance, class: "black-text"  %>
+            </div>
+
+            <a class="waves-effect waves-light btn">
+              <%= form.submit 'vytvořit' %>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+<% end %>
